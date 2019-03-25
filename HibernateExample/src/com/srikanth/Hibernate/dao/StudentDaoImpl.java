@@ -51,4 +51,46 @@ public class StudentDaoImpl implements StudentDao {
 		return list;
 	}
 
+	@Override
+	public int updateStudent(int primary) {
+		// TODO Auto-generated method stub
+		
+		Session session = null;
+		session = StudentUtil.getSession();
+		Transaction trnx = session.beginTransaction();
+		
+		Student student =   (Student) session.load(Student.class, primary);
+		
+		student.setsName("Jeevan");
+		student.setAge(23);
+		student.setGender("Male");
+		student.setDept("Cse");
+		
+		session.update(student);
+		
+		//int primary = (int) session.save(student);
+		trnx.commit();
+		
+		
+		return 0;
+	}
+
+	@Override
+	public int deleteStudent(int primary) {
+		// TODO Auto-generated method stub
+		
+		Session session = null;
+		session = StudentUtil.getSession();
+		
+		Transaction trnx = session.beginTransaction();
+		
+		Student student =   (Student) session.load(Student.class, primary);
+		
+		session.delete(student);
+		
+		trnx.commit();
+		
+		return 0;
+	}
+
 }

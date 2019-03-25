@@ -15,20 +15,25 @@ public class StudentClient {
 		
 		Student student = new Student();
 		
-		student.setsName("SaiSaran");
-		student.setAge(20);
+		student.setsName("Jeevan");
+		student.setAge(22);
 		student.setGender("Male");
-		student.setDept("cse");
+		student.setDept("it");
 		
 		
 		StudentDao studentDao = new StudentDaoImpl();
 		
-		int primary = studentDao.addStudent(student);
+	//	int primary = studentDao.addStudent(student);
 		
 		List<Student> list = new ArrayList();
 		
-		list = studentDao.Display();
 		
+		
+		//studentDao.updateStudent(14);
+		
+		studentDao.deleteStudent(14);
+		
+		list = studentDao.Display();
 		
 		for(int i=0;i<list.size();i++)
 		{
