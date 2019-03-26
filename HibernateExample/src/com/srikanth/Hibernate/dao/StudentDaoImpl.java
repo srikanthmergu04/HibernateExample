@@ -61,10 +61,10 @@ public class StudentDaoImpl implements StudentDao {
 		
 		Student student =   (Student) session.load(Student.class, primary);
 		
-		student.setsName("Jeevan");
-		student.setAge(23);
+		student.setsName("varun");
+		student.setAge(24);
 		student.setGender("Male");
-		student.setDept("Cse");
+		student.setDept("Mech");
 		
 		session.update(student);
 		
